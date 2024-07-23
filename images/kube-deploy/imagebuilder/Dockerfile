@@ -4,7 +4,7 @@ WORKDIR /go/src/sigs.k8s.io/image-builder/images/kube-deploy/imagebuilder
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build
 
-FROM alpine:3.11
+FROM alpine:3.19
 WORKDIR /imagebuilder
 RUN apk add --no-cache ca-certificates
 COPY --from=build /go/src/sigs.k8s.io/image-builder/images/kube-deploy/imagebuilder/imagebuilder imagebuilder
